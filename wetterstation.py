@@ -8,12 +8,12 @@ import os
 import paho.mqtt.client as mqtt
 
 
-MQTT_SERVER = "10.0.0.10"
+MQTT_SERVER = "X.X.X.X"
 MQTT_PORT = 1883
 MQTT_TOPIC = "weatherstation/sensors"
 MQTT_USER = "mqtt_user"
 MQTT_PASSWORD = "mqtt_passwd"
-
+TCP_SERVERPORT = 8077
 
 parameter = [
     "ID",
@@ -139,5 +139,5 @@ class MyTCPHandler(socketserver.BaseRequestHandler):
         prepare_data_to_mqtt()
 
 
-aServer = socketserver.TCPServer(("", 8077), MyTCPHandler)
+aServer = socketserver.TCPServer(("", TCP_SERVERPORT), MyTCPHandler)
 aServer.serve_forever()
